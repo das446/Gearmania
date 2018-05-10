@@ -4,34 +4,27 @@ using UnityEngine;
 
 public class Gear : MonoBehaviour {
 
-	//test
-
-	float speed;
-	Rigidbody2D rb2d;
-	public bool grounded;
-	float jumpForce;
+	[SerializeField] float speed;
+	[SerializeField] Rigidbody2D rb2d;
+	public Collider2D col;
+	[SerializeField] bool grounded;
+	[SerializeField] float jumpForce;
+	public PlatformEffector2D effector;
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start() {
+
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-		
-		MoveH();
-		if(Input.GetKeyDown(KeyCode.Space) && grounded){
-			Jump();
+	void Update() {
+
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.gameObject.tag == "Projectile" || other.gameObject.tag == "Enemy") {
+			Destroy(other.gameObject);
 		}
 
-	}
-
-	void MoveH(){
-		float x = Input.GetAxis("Horizontal");
-		rb2d.velocity=new Vector2(x*speed,rb2d.velocity.y);
-	}
-
-	void Jump(){
-		rb2d.AddForce(Vector3.up*jumpForce);
 	}
 }
