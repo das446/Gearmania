@@ -15,7 +15,7 @@ public class Player : MonoBehaviour {
 	[SerializeField] Gear gear;
 	[SerializeField] Collider2D col;
 	public Vector2 deathPos;
-	bool holdingGear = true;
+	public bool holdingGear = true;
 	public LineRenderer lr;
 	public static Player player;
 	public float throwDist;
@@ -37,6 +37,8 @@ public class Player : MonoBehaviour {
 			//Debug.Log("Jump");
 			Jump();
 		}
+
+		if(gear.broken){return;}
 
 		if (Input.GetButtonDown("Fire1") && holdingGear) {
 			DropGear();
@@ -73,7 +75,6 @@ public class Player : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "Projectile" || other.gameObject.tag == "Enemy") {
-			Destroy(other.gameObject);
 			Die();
 		}
 	}
