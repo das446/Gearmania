@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update() {
 		MoveH();
-
 		if (Input.GetButtonDown("Jump") && grounded) {
 			//Debug.Log("Jump");
 			Jump();
