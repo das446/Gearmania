@@ -91,12 +91,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c7613c39c5cc44c84a6fb9a47fc82a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  rb2d: {fileID: 0}
+  speed: 10
+  rb2d: {fileID: 50590098858751002}
   col: {fileID: 58324045066179854}
   grounded: 0
   jumpForce: 0
   effector: {fileID: 251628946308961458}
+  hp: 100
+  hpMax: 100
+  respawnTime: 5
+  broken: 0
+  HealthBar: {fileID: 0}
 --- !u!120 &120362831237039640
 LineRenderer:
   m_ObjectHideFlags: 1

@@ -30,7 +30,7 @@ public class Gear : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "Projectile" || other.gameObject.tag == "Enemy") {
 			Destroy(other.gameObject);
-			if(Player.player.holdingGear){
+			if(Player.player.throwGear.holdingGear){
 				TakeDamage(10);
 			}
 			else{
