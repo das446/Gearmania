@@ -404,11 +404,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: 
-  names:
-  - Jump
+  names: []
   prevNames: []
-  sounds:
-  - {fileID: 8300000, guid: f07a72e215bce684498ef445a4fb7b7f, type: 3}
+  sounds: []
   prevSounds: []
   Updated: 0
   DefaultVolume: 0
@@ -1547,6 +1545,11 @@ Prefab:
     - target: {fileID: 4842330402486532, guid: c7fac16a61694bf40b79031cf5e9a878, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319514646306630, guid: c7fac16a61694bf40b79031cf5e9a878,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7fac16a61694bf40b79031cf5e9a878, type: 2}

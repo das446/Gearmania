@@ -21,7 +21,6 @@ public class LevelLoader : MonoBehaviour {
 	}
 
 	void EmptyMap() {
-		// Find all of our children and...eliminate them.
 
 		while (transform.childCount > 0) {
 			Transform c = transform.GetChild(0);
