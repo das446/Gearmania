@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Jump() {
 		rb2d.AddForce(Vector3.up * jumpForce);
 		grounded = false;
+		this.PlaySound("Jump",randomPitch:true);
 	}
 
 	void Update() {
