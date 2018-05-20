@@ -528,6 +528,10 @@ Prefab:
       propertyPath: jumpForce
       value: 1250
       objectReference: {fileID: 0}
+    - target: {fileID: 1904376225503946, guid: 492183a61aadeaf43ab33d0c6655f324, type: 2}
+      propertyPath: m_TagString
+      value: Gear
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 492183a61aadeaf43ab33d0c6655f324, type: 2}
   m_IsPrefabParent: 0

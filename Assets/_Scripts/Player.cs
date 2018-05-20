@@ -30,7 +30,9 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
-		movement.grounded = true;
+		if(other.gameObject.tag!="Gear"){
+			movement.grounded = true;
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
