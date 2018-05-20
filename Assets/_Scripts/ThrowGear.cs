@@ -33,7 +33,9 @@ public class ThrowGear : MonoBehaviour {
 		}
 
 		if (Input.GetButtonDown("Fire2") && (holdingGear || !gear.gameObject.activeInHierarchy)) {
-			StartCoroutine(throwGear());
+			Vector2 dir = getDir();
+			Debug.Log(dir);
+			StartCoroutine(throwGear(dir));
 		}
 
 		if (Input.GetButton("TriggerR") && !holdingGear && !gear.gameObject.activeInHierarchy) {
@@ -52,11 +54,12 @@ public class ThrowGear : MonoBehaviour {
 		holdingGear = false;
 	}
 
-	public IEnumerator throwGear() {
+	public IEnumerator throwGear(Vector2 dir) {
 		holdingGear = false;
 		DropGear(effector: false);
 		bool right = transform.eulerAngles.y == 0;
-		Vector2 target = right ? transform.position + Vector3.right * throwDist : transform.position - Vector3.right * throwDist;
+		Vector2 target = dir;
+		//Vector2 target = right ? transform.position + Vector3.right * throwDist : transform.position - Vector3.right * throwDist;
 		Vector2 cur = gear.transform.position;
 
 		while (Vector2.Distance(cur, target) > 0.25f) {
@@ -119,6 +122,14 @@ public class ThrowGear : MonoBehaviour {
 	public void TakeOutGear() {
 		gear.gameObject.SetActive(true);
 		PickUpGear();
+	}
+
+	Vector2 getDir(){
+		Vector2 mousePos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x,Input.mousePosition.y));
+		Vector2 heading = mousePos - (Vector2)Player.player.gear.transform.position;
+		float distance = heading.magnitude;
+		Vector2 dir = heading/distance;
+		return mousePos;
 	}
 
 }
