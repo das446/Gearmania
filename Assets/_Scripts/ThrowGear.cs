@@ -24,25 +24,20 @@ public class ThrowGear : MonoBehaviour {
 
 		if (gear.broken) { return; }
 
-		if (Input.GetButtonDown("Fire1") && holdingGear) {
+		bool i = Input.GetButtonDown("Fire1") || Input.GetMouseButtonDown(1);
+
+		if (i && holdingGear) {
 			DropGear();
-		} else if (Input.GetButtonDown("Fire1") && Vector2.Distance(transform.position, gear.transform.position) < 1.5f) {
+		} else if (i && Vector2.Distance(transform.position, gear.transform.position) < 1.5f) {
 			PickUpGear();
-		} else if (Input.GetButtonDown("Fire1") && Vector2.Distance(transform.position, gear.transform.position) >= 1.5f) {
+		} else if (i && Vector2.Distance(transform.position, gear.transform.position) >= 1.5f) {
 			StartCoroutine(RetrieveGear());
 		}
 
-		if (Input.GetButtonDown("Fire2") && (holdingGear || !gear.gameObject.activeInHierarchy)) {
+		if ((Input.GetButtonDown("Fire2") || Input.GetMouseButtonDown(0)) && (holdingGear || !gear.gameObject.activeInHierarchy)) {
 			Vector2 dir = getDir();
 			Debug.Log(dir);
 			StartCoroutine(throwGear(dir));
-		}
-
-		if (Input.GetButton("TriggerR") && !holdingGear && !gear.gameObject.activeInHierarchy) {
-			TakeOutGear();
-
-		} else if (!Input.GetButton("TriggerR") && holdingGear) {
-			PutAwayGear();
 		}
 
 	}
@@ -50,8 +45,12 @@ public class ThrowGear : MonoBehaviour {
 	void DropGear(bool effector = true) {
 		gear.transform.parent = null;
 		gear.col.isTrigger = false;
-		gear.effector.enabled = true;
+		gear.effector.enabled = false;
 		holdingGear = false;
+		gear.rb2d.bodyType = RigidbodyType2D.Dynamic;
+		gear.rb2d.gravityScale = 1;
+		gear.rb2d.velocity = Vector2.zero;
+		gear.gameObject.layer = 9;
 	}
 
 	public IEnumerator throwGear(Vector2 dir) {
@@ -73,10 +72,14 @@ public class ThrowGear : MonoBehaviour {
 
 	public void PickUpGear() {
 		gear.transform.parent = hand.transform;
-		gear.col.isTrigger = true;
+		//gear.col.isTrigger = true;
 		gear.transform.localPosition = Vector3.zero;
 		gear.effector.enabled = false;
 		holdingGear = true;
+		gear.rb2d.bodyType = RigidbodyType2D.Kinematic;
+		gear.rb2d.gravityScale = 0;
+		gear.rb2d.velocity = Vector2.zero;
+
 	}
 
 	IEnumerator RetrieveGear(bool drawGrapple = true) {
@@ -124,11 +127,11 @@ public class ThrowGear : MonoBehaviour {
 		PickUpGear();
 	}
 
-	Vector2 getDir(){
-		Vector2 mousePos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x,Input.mousePosition.y));
-		Vector2 heading = mousePos - (Vector2)Player.player.gear.transform.position;
+	Vector2 getDir() {
+		Vector2 mousePos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+		Vector2 heading = mousePos - (Vector2) Player.player.gear.transform.position;
 		float distance = heading.magnitude;
-		Vector2 dir = heading/distance;
+		Vector2 dir = heading / distance;
 		return mousePos;
 	}
 

@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour {
 
 	void MoveH() {
 		float x = Input.GetAxis("Horizontal");
+		if(x==0){
+			x=Input.GetAxis("Horizontal2");
+		}
 		rb2d.velocity = new Vector2(x * speed, rb2d.velocity.y);
 		if (x < 0) {
 			transform.eulerAngles = new Vector3(0, 180, 0);
@@ -28,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update() {
 		MoveH();
-		if (Input.GetButtonDown("Jump") && grounded) {
+		if ((Input.GetButtonDown("Jump") ||Input.GetButtonDown("Jump2")) && grounded) {
 			//Debug.Log("Jump");
 			Jump();
 		}

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Gear : MonoBehaviour {
 
-	[SerializeField] Rigidbody2D rb2d;
+	public Rigidbody2D rb2d;
 	public Collider2D col;
 	public PlatformEffector2D effector;
 	public int hp, hpMax;
@@ -36,6 +36,14 @@ public class Gear : MonoBehaviour {
 			}
 		}
 
+	}
+
+	private void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.tag!="Player" && other.gameObject.tag!="Projectile" && other.gameObject.tag!="Enemy"){
+			effector.enabled = true;
+			gameObject.layer = 0;
+		}
 	}
 
 	void TakeDamage(int amnt) {
