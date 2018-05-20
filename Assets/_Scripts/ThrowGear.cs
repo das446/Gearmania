@@ -22,7 +22,7 @@ public class ThrowGear : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 
-		if(gear.broken){return;}
+		if (gear.broken) { return; }
 
 		if (Input.GetButtonDown("Fire1") && holdingGear) {
 			DropGear();
@@ -32,10 +32,16 @@ public class ThrowGear : MonoBehaviour {
 			StartCoroutine(RetrieveGear());
 		}
 
-		if (Input.GetButtonDown("Fire2") && holdingGear) {
+		if (Input.GetButtonDown("Fire2") && (holdingGear || !gear.gameObject.activeInHierarchy)) {
 			StartCoroutine(throwGear());
 		}
 
+		if (Input.GetButton("TriggerR") && !holdingGear && !gear.gameObject.activeInHierarchy) {
+			TakeOutGear();
+
+		} else if (!Input.GetButton("TriggerR") && holdingGear) {
+			PutAwayGear();
+		}
 
 	}
 
@@ -47,6 +53,7 @@ public class ThrowGear : MonoBehaviour {
 	}
 
 	public IEnumerator throwGear() {
+		holdingGear = false;
 		DropGear(effector: false);
 		bool right = transform.eulerAngles.y == 0;
 		Vector2 target = right ? transform.position + Vector3.right * throwDist : transform.position - Vector3.right * throwDist;
@@ -102,6 +109,16 @@ public class ThrowGear : MonoBehaviour {
 		lr.SetPosition(1, Vector2.zero);
 		PickUpGear();
 
+	}
+
+	public void PutAwayGear() {
+		holdingGear = false;
+		gear.gameObject.SetActive(false);
+	}
+
+	public void TakeOutGear() {
+		gear.gameObject.SetActive(true);
+		PickUpGear();
 	}
 
 }

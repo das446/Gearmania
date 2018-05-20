@@ -5,11 +5,8 @@ using UnityEngine.UI;
 
 public class Gear : MonoBehaviour {
 
-	[SerializeField] float speed;
 	[SerializeField] Rigidbody2D rb2d;
 	public Collider2D col;
-	[SerializeField] bool grounded;
-	[SerializeField] float jumpForce;
 	public PlatformEffector2D effector;
 	public int hp, hpMax;
 	public float respawnTime;
@@ -19,7 +16,7 @@ public class Gear : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		hp = hpMax;
-		StartCoroutine(RepeatedHeal());
+		
 	}
 
 	// Update is called once per frame
@@ -29,6 +26,7 @@ public class Gear : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "Projectile" || other.gameObject.tag == "Enemy") {
+			if(other.gameObject.tag == "Enemy"){this.PlaySound("Robot_Die");}
 			Destroy(other.gameObject);
 			if(Player.player.throwGear.holdingGear){
 				TakeDamage(10);
@@ -55,7 +53,8 @@ public class Gear : MonoBehaviour {
 		gameObject.SetActive(false);
 	}
 
-	void Heal(int amnt) {
+	public void Heal(int amnt) {
+		Debug.Log("Heal");
 		hp += amnt;
 		if (hp > hpMax) {
 			hp = hpMax;
@@ -64,20 +63,14 @@ public class Gear : MonoBehaviour {
 
 	}
 
-	IEnumerator RepeatedHeal() {
-		while (true) {
-			yield return new WaitForSeconds(1);
-			Heal(1);
-
-		}
-	}
+	
 
 	void Respawn() {
 		broken = false;
 		gameObject.SetActive(true);
 		hp = hpMax;
 		UpdateHealthBar();
-		StartCoroutine(RepeatedHeal());
+		StartCoroutine(Player.player.RepeatedHeal());
 	}
 
 	void UpdateHealthBar() {
