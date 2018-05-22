@@ -65,6 +65,8 @@ public class ThrowGear : MonoBehaviour {
 	}
 
 	public IEnumerator throwGear(Vector2 target) {
+		Vector2 dir = target - (Vector2)gear.transform.position;
+
 		holdingGear = false;
 		DropGear(effector: false);
 		bool right = transform.eulerAngles.y == 0;
@@ -76,7 +78,11 @@ public class ThrowGear : MonoBehaviour {
 			gear.transform.position = cur;
 			yield return null;
 		}
-		yield return StartCoroutine(RetrieveGear(drawGrapple: false));
+
+		DropGear();
+		gear.rb2d.AddForce(200*dir);
+
+		//yield return StartCoroutine(RetrieveGear(drawGrapple: false));
 
 	}
 
