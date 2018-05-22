@@ -49,7 +49,7 @@ public class ThrowGear : MonoBehaviour {
 	private void updateTargetIcon() {
 		float x = Input.GetAxis("Horizontal");
 		float y = Input.GetAxis("Vertical");
-		targetIcon.transform.position = (Vector2) transform.position + new Vector2(x, y) * 3;
+		targetIcon.transform.position = (Vector2)gear.transform.position + new Vector2(x, y) * 3;
 	}
 
 	void DropGear(bool effector = true) {
@@ -61,6 +61,7 @@ public class ThrowGear : MonoBehaviour {
 		gear.rb2d.gravityScale = 1;
 		gear.rb2d.velocity = Vector2.zero;
 		gear.gameObject.layer = 9;
+		targetIcon.gameObject.SetActive(false);
 	}
 
 	public IEnumerator throwGear(Vector2 target) {
@@ -88,6 +89,7 @@ public class ThrowGear : MonoBehaviour {
 		gear.rb2d.bodyType = RigidbodyType2D.Kinematic;
 		gear.rb2d.gravityScale = 0;
 		gear.rb2d.velocity = Vector2.zero;
+		targetIcon.gameObject.SetActive(true);
 
 	}
 
@@ -147,7 +149,7 @@ public class ThrowGear : MonoBehaviour {
 		} else {
 
 			target = targetIcon.transform.position;
-			if (targetIcon.transform.localPosition == Vector3.zero) {
+			if (Input.GetAxis("Horizontal")==0 && Input.GetAxis("Vertical")==0) {
 				target = transform.position + transform.right*3;
 			}
 		}
