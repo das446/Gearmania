@@ -16,6 +16,7 @@ public class Gear : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		hp = hpMax;
+		StartCoroutine(RepeatedHeal());
 		
 	}
 
@@ -71,6 +72,16 @@ public class Gear : MonoBehaviour {
 
 	}
 
+	public IEnumerator RepeatedHeal() {
+		while (true) {
+			yield return new WaitForSeconds(1);
+			if(!broken){
+				Heal(2);
+			}
+
+		}
+	}
+
 	
 
 	void Respawn() {
@@ -78,7 +89,7 @@ public class Gear : MonoBehaviour {
 		gameObject.SetActive(true);
 		hp = hpMax;
 		UpdateHealthBar();
-		StartCoroutine(Player.player.RepeatedHeal());
+		StartCoroutine(RepeatedHeal());
 	}
 
 	void UpdateHealthBar() {

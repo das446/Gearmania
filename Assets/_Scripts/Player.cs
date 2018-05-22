@@ -19,7 +19,6 @@ public class Player : MonoBehaviour {
 		player = this;
 		movement = GetComponent<PlayerMovement>();
 		throwGear = GetComponent<ThrowGear>();
-		StartCoroutine(RepeatedHeal());
 	}
 
 	void Update() {
@@ -47,16 +46,6 @@ public class Player : MonoBehaviour {
 		movement.rb2d.velocity = Vector2.zero;
 		transform.position = deathPos;
 		movement.grounded = false;
-	}
-
-	public IEnumerator RepeatedHeal() {
-		while (true) {
-			yield return new WaitForSeconds(1);
-			if(throwGear.holdingGear){
-				gear.Heal(1);
-			}
-
-		}
 	}
 
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,8 @@ public class ThrowGear : MonoBehaviour {
 
 	private Gear gear;
 
+	public GameObject targetIcon;
+
 	// Use this for initialization
 	void Start() {
 		gear = GetComponent<Player>().gear;
@@ -23,6 +26,8 @@ public class ThrowGear : MonoBehaviour {
 	void Update() {
 
 		if (gear.broken) { return; }
+
+		updateTargetIcon();
 
 		bool i = Input.GetButtonDown("Fire1") || Input.GetMouseButtonDown(1);
 
@@ -35,11 +40,16 @@ public class ThrowGear : MonoBehaviour {
 		}
 
 		if ((Input.GetButtonDown("Fire2") || Input.GetMouseButtonDown(0)) && (holdingGear || !gear.gameObject.activeInHierarchy)) {
-			Vector2 dir = getDir();
-			Debug.Log(dir);
-			StartCoroutine(throwGear(dir));
+			Vector2 target = getTarget();
+			StartCoroutine(throwGear(target));
 		}
 
+	}
+
+	private void updateTargetIcon() {
+		float x = Input.GetAxis("Horizontal");
+		float y = Input.GetAxis("Vertical");
+		targetIcon.transform.position = (Vector2) transform.position + new Vector2(x, y) * 3;
 	}
 
 	void DropGear(bool effector = true) {
@@ -53,11 +63,10 @@ public class ThrowGear : MonoBehaviour {
 		gear.gameObject.layer = 9;
 	}
 
-	public IEnumerator throwGear(Vector2 dir) {
+	public IEnumerator throwGear(Vector2 target) {
 		holdingGear = false;
 		DropGear(effector: false);
 		bool right = transform.eulerAngles.y == 0;
-		Vector2 target = dir;
 		//Vector2 target = right ? transform.position + Vector3.right * throwDist : transform.position - Vector3.right * throwDist;
 		Vector2 cur = gear.transform.position;
 
@@ -127,12 +136,27 @@ public class ThrowGear : MonoBehaviour {
 		PickUpGear();
 	}
 
-	Vector2 getDir() {
-		Vector2 mousePos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-		Vector2 heading = mousePos - (Vector2) Player.player.gear.transform.position;
-		float distance = heading.magnitude;
-		Vector2 dir = heading / distance;
-		return mousePos;
+	Vector2 getTarget() {
+
+		bool mouse = Input.GetMouseButtonDown(0);
+		Vector2 gearPos = gear.transform.position;
+		Vector2 target = Vector2.zero;
+
+		if (mouse) {
+			target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+		} else {
+
+			target = targetIcon.transform.position;
+			if (targetIcon.transform.localPosition == Vector3.zero) {
+				target = transform.position + transform.right*3;
+			}
+		}
+
+		float distance = Vector2.Distance(target, gearPos);
+		Vector2 tempTarget = target - gearPos;
+		tempTarget = tempTarget * throwDist / distance;
+		target = tempTarget + gearPos;
+		return target;
 	}
 
 }
