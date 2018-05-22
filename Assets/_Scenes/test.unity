@@ -404,12 +404,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: 
-  names: []
+  names:
+  - Jump
+  - Robot_Die
+  - Shield
   prevNames: []
-  sounds: []
+  sounds:
+  - {fileID: 8300000, guid: f07a72e215bce684498ef445a4fb7b7f, type: 3}
+  - {fileID: 8300000, guid: 7ada596ee9f509d4aaf380cb1c2378b2, type: 3}
+  - {fileID: 8300000, guid: 28096433a945f424b92d102d69070d56, type: 3}
   prevSounds: []
   Updated: 0
-  DefaultVolume: 0
+  DefaultVolume: 0.25
 --- !u!1001 &345675136
 Prefab:
   m_ObjectHideFlags: 0
@@ -1504,6 +1510,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114319514646306630, guid: c7fac16a61694bf40b79031cf5e9a878,
+        type: 2}
+      propertyPath: names.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319514646306630, guid: c7fac16a61694bf40b79031cf5e9a878,
+        type: 2}
+      propertyPath: sounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4842330402486532, guid: c7fac16a61694bf40b79031cf5e9a878, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1546,6 +1562,51 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 9e4f558197046af4b8aa436a5e441c81, type: 3}
+    - target: {fileID: 114779474422743616, guid: c7fac16a61694bf40b79031cf5e9a878,
+        type: 2}
+      propertyPath: CurrentSong
+      value: 
+      objectReference: {fileID: 8300000, guid: f29fc006b33641744af1ffe2bc2cd999, type: 3}
+    - target: {fileID: 82671882202436592, guid: c7fac16a61694bf40b79031cf5e9a878,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319514646306630, guid: c7fac16a61694bf40b79031cf5e9a878,
+        type: 2}
+      propertyPath: DefaultVolume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319514646306630, guid: c7fac16a61694bf40b79031cf5e9a878,
+        type: 2}
+      propertyPath: names.Array.data[0]
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319514646306630, guid: c7fac16a61694bf40b79031cf5e9a878,
+        type: 2}
+      propertyPath: names.Array.data[1]
+      value: Robot_Die
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319514646306630, guid: c7fac16a61694bf40b79031cf5e9a878,
+        type: 2}
+      propertyPath: sounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f07a72e215bce684498ef445a4fb7b7f, type: 3}
+    - target: {fileID: 114319514646306630, guid: c7fac16a61694bf40b79031cf5e9a878,
+        type: 2}
+      propertyPath: sounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7ada596ee9f509d4aaf380cb1c2378b2, type: 3}
+    - target: {fileID: 114319514646306630, guid: c7fac16a61694bf40b79031cf5e9a878,
+        type: 2}
+      propertyPath: names.Array.data[2]
+      value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319514646306630, guid: c7fac16a61694bf40b79031cf5e9a878,
+        type: 2}
+      propertyPath: sounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 28096433a945f424b92d102d69070d56, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7fac16a61694bf40b79031cf5e9a878, type: 2}
   m_IsPrefabParent: 0
@@ -1593,7 +1654,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9e4f558197046af4b8aa436a5e441c81, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1674,7 +1735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c0753e227064c2459b4d650455ee089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentSong: {fileID: 8300000, guid: 9a0d5facb1b5f7e47846a3f3647c9324, type: 3}
+  CurrentSong: {fileID: 8300000, guid: f29fc006b33641744af1ffe2bc2cd999, type: 3}
   Songs: []
   names: []
   prevNames: []
