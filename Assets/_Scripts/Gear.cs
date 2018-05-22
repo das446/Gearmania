@@ -28,6 +28,7 @@ public class Gear : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "Projectile" || other.gameObject.tag == "Enemy") {
 			if(other.gameObject.tag == "Enemy"){this.PlaySound("Robot_Die");}
+			else{this.PlaySound("Shield");}
 			Destroy(other.gameObject);
 			if(Player.player.throwGear.holdingGear){
 				TakeDamage(10);
