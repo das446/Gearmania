@@ -47,8 +47,8 @@ public class ThrowGear : MonoBehaviour {
 	}
 
 	private void updateTargetIcon() {
-		float x = Input.GetAxis("Horizontal");
-		float y = Input.GetAxis("Vertical");
+		float x = Input.GetAxis("aimH");
+		float y = Input.GetAxis("aimV");
 		targetIcon.transform.position = (Vector2)gear.transform.position + new Vector2(x, y) * 3;
 	}
 
@@ -149,7 +149,7 @@ public class ThrowGear : MonoBehaviour {
 		} else {
 
 			target = targetIcon.transform.position;
-			if (Input.GetAxis("Horizontal")==0 && Input.GetAxis("Vertical")==0) {
+			if (Input.GetAxis("aimH")==0 && Input.GetAxis("aimV")==0) {
 				target = transform.position + transform.right*3;
 			}
 		}
