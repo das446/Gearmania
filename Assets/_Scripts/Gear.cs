@@ -45,6 +45,7 @@ public class Gear : MonoBehaviour {
 		if (other.gameObject.tag!="Player" && other.gameObject.tag!="Projectile" && other.gameObject.tag!="Enemy"){
 			effector.enabled = true;
 			gameObject.layer = 0;
+			this.PlaySound("Drop");
 		}
 	}
 
