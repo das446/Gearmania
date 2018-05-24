@@ -32,7 +32,6 @@ public class ElectricGround : Ground,IPuzzleObject {
 	}
 
     public override void OnPlayerCollision(Player p){
-		Debug.Log("die");
 		if (deadly){
 			p.Die();
 		}

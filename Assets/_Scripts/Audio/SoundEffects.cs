@@ -51,7 +51,7 @@ public class SoundEffects : MonoBehaviour
             DefaultSounds.PlaySound(Sound, volume);
         }
         else {
-            Debug.Log("Doesn't contain sound effect " + Sound);
+            Debug.LogWarning("No sound effect named " + Sound);
         }
     }
 

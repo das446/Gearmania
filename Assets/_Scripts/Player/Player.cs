@@ -26,6 +26,9 @@ public class Player : MonoBehaviour {
 		if (transform.position.y < -10) {
 			Die();
 		}
+		if(Input.GetKeyDown(KeyCode.Escape)){
+			Application.Quit();
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
@@ -38,8 +41,8 @@ public class Player : MonoBehaviour {
 
 	public void Die() {
 		StopAllCoroutines();
-		throwGear.lr.SetPosition(0, Vector2.zero);
-		throwGear.lr.SetPosition(1, Vector2.zero);
+		throwGear.StopAllCoroutines();
+		throwGear.SetLine(Vector2.zero, Vector2.zero);
 		throwGear.PickUpGear();
 		movement.rb2d.velocity = Vector2.zero;
 		transform.position = deathPos;

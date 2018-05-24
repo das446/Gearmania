@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour, IGearContact, IPlayerContact {
 	public void OnGearCollision(Gear gear) {
-		Debug.Log(name);
 		gear.effector.enabled = true;
 		gear.gameObject.layer = 0;
 		this.PlaySound("Drop");
 	}
 
 	public void OnGearTrigger(Gear gear) {
-		Debug.Log(name);
 		gear.effector.enabled = true;
 		gear.gameObject.layer = 0;
 		this.PlaySound("Drop");

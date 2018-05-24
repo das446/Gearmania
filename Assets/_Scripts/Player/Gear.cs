@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Gear : MonoBehaviour {
+public class Gear : MonoBehaviour,IPlayerContact {
 
 	public Rigidbody2D rb2d;
 	public Collider2D col;
@@ -53,7 +53,6 @@ public class Gear : MonoBehaviour {
 	}
 
 	public void Heal(int amnt) {
-		Debug.Log("Heal");
 		hp += amnt;
 		if (hp > hpMax) {
 			hp = hpMax;
@@ -86,6 +85,14 @@ public class Gear : MonoBehaviour {
 		HealthBar.fillAmount = (float) ((float) hp / (float) hpMax);
 	}
 
+    public void OnPlayerCollision(Player p)
+    {
+        p.movement.grounded = true;
+    }
+
+    public void OnPlayerTrigger(Player p)
+    {
+    }
 }
 
 public interface IGearContact{

@@ -96,12 +96,12 @@ public static class ExtensionMethods {
     {
         if (l1.Count != l2.Count)
         {
-            Debug.Log("Error, both lists need to be the same length to convert to dictionary.\nList1 Count=" + l1.Count + " List2 Count=" + l2.Count);
+            Debug.LogError("Error, both lists need to be the same length to convert to dictionary.\nList1 Count=" + l1.Count + " List2 Count=" + l2.Count);
             return false;
         }
         if (l1.Count != l1.Distinct().Count())
         {
-            Debug.Log("Error, Can not create dictionary with duplicate keys ");
+            Debug.LogError("Error, Can not create dictionary with duplicate keys ");
             return false;
         }
         d.Clear();

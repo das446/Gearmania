@@ -111,7 +111,6 @@ namespace Helper_Scripts
             }
             if (!_instance.SongsDict.ContainsKey(SongName)) { return; }
             Source.Stop();
-            Debug.Log(Source);
             _instance.CurrentSong = _instance.SongsDict[SongName];
             Source.loop = true;
             Source.clip =_instance.CurrentSong;
