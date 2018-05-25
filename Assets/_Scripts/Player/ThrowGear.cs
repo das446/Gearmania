@@ -26,7 +26,10 @@ public class ThrowGear : MonoBehaviour {
 	void Update() {
 
 		if (gear.broken) { return; }
-
+		if (gear.transform.position.y < -10) {
+			PickUpGear();
+			gear.TakeDamage(25);
+		}
 		updateTargetIcon();
 
 		bool i = Input.GetButtonDown("Fire1") ||
@@ -43,6 +46,9 @@ public class ThrowGear : MonoBehaviour {
 			Vector2 target = getTarget();
 			StartCoroutine(throwGear(target));
 			//ThrowGearPhysics(target);
+		}
+		if(Vector2.Distance(transform.position,gear.transform.position)>30){
+			StartCoroutine(RetrieveGear());
 		}
 
 	}
@@ -114,7 +120,7 @@ public class ThrowGear : MonoBehaviour {
 			//move line to gear
 			while (Vector2.Distance(cur, target) > 0.5f) {
 				cur = Vector3.MoveTowards(cur, target, speed * Time.deltaTime);
-				SetLine(transform.position,cur);
+				SetLine(transform.position, cur);
 				yield return null;
 			}
 		}
@@ -127,11 +133,11 @@ public class ThrowGear : MonoBehaviour {
 		//pull gear to player
 		while (Vector2.Distance(cur, hand.transform.position) > 0.5f) {
 			cur = Vector3.MoveTowards(cur, hand.transform.position, speed * Time.deltaTime);
-			SetLine(transform.position,cur);
+			SetLine(transform.position, cur);
 			gear.transform.position = cur;
 			yield return null;
 		}
-		SetLine(Vector2.zero,Vector2.zero);
+		SetLine(Vector2.zero, Vector2.zero);
 		PickUpGear();
 
 	}

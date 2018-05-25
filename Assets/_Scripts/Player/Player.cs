@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
@@ -28,6 +29,10 @@ public class Player : MonoBehaviour {
 		}
 		if(Input.GetKeyDown(KeyCode.Escape)){
 			Application.Quit();
+		}
+
+		if(Input.GetKeyDown(KeyCode.R)){
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 	}
 
