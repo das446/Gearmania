@@ -37,26 +37,26 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
-		other.gameObject.GetComponent<IPlayerContact>()?.OnPlayerCollision(this);
+		other.gameObject.GetComponent<IContact<Player>>()?.OnCollision(this);
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		other.GetComponent<IPlayerContact>()?.OnPlayerTrigger(this);
+		other.GetComponent<IContact<Player>>()?.OnTrigger(this);
 	}
 
 	public void Die() {
 		StopAllCoroutines();
 		throwGear.StopAllCoroutines();
 		throwGear.SetLine(Vector2.zero, Vector2.zero);
-		throwGear.PickUpGear();
 		movement.rb2d.velocity = Vector2.zero;
 		transform.position = deathPos;
 		movement.grounded = false;
+		throwGear.PickUpGear();
 	}
 
 }
 
-public interface IPlayerContact {
-	void OnPlayerCollision(Player p);
-	void OnPlayerTrigger(Player p);
+public interface IContact<T>{
+	void OnCollision(T t);
+	void OnTrigger(T t);
 }

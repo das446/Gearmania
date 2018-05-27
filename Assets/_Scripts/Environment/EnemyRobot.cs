@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyRobot : MonoBehaviour, IGearContact, IPlayerContact {
+public class EnemyRobot : MonoBehaviour, IContact<Gear>, IContact<Player> {
 
 	// Use this for initialization
 
@@ -26,7 +26,7 @@ public class EnemyRobot : MonoBehaviour, IGearContact, IPlayerContact {
 		}
 	}
 
-    public void OnGearTrigger(Gear gear)
+    public void OnTrigger(Gear gear)
     {
         
 			this.PlaySound("Robot_Die");
@@ -39,17 +39,17 @@ public class EnemyRobot : MonoBehaviour, IGearContact, IPlayerContact {
 			Destroy(gameObject);
     }
 
-    public void OnGearCollision(Gear gear)
+    public void OnCollision(Gear gear)
     {
         throw new System.NotImplementedException();
     }
 
-    public void OnPlayerCollision(Player p)
+    public void OnCollision(Player p)
     {
         throw new System.NotImplementedException();
     }
 
-    public void OnPlayerTrigger(Player p)
+    public void OnTrigger(Player p)
     {
         p.Die();
     }

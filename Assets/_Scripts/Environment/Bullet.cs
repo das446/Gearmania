@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour, IGearContact, IPlayerContact {
+public class Bullet : MonoBehaviour, IContact<Gear>, IContact<Player> {
 
 	[SerializeField] float speed;
 
@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour, IGearContact, IPlayerContact {
 		transform.rotation = Quaternion.Euler(0f, 180f, rot_z - 90);
 	}
 
-	public void OnGearTrigger(Gear gear) {
+	public void OnTrigger(Gear gear) {
 		this.PlaySound("Shield");
 		if (Player.player.throwGear.holdingGear) {
 			gear.TakeDamage(10);
@@ -38,7 +38,7 @@ public class Bullet : MonoBehaviour, IGearContact, IPlayerContact {
 		Destroy(gameObject);
 	}
 
-	public void OnGearCollision(Gear gear) {
+	public void OnCollision(Gear gear) {
 		this.PlaySound("Shield");
 		if (Player.player.throwGear.holdingGear) {
 			gear.TakeDamage(10);
@@ -48,12 +48,12 @@ public class Bullet : MonoBehaviour, IGearContact, IPlayerContact {
 		Destroy(gameObject);
 	}
 
-    public void OnPlayerCollision(Player p)
+    public void OnCollision(Player p)
     {
         throw new System.NotImplementedException();
     }
 
-    public void OnPlayerTrigger(Player p)
+    public void OnTrigger(Player p)
     {
         p.Die();
     }

@@ -2,25 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ground : MonoBehaviour, IGearContact, IPlayerContact {
-	public void OnGearCollision(Gear gear) {
-		gear.effector.enabled = true;
+public class Ground : MonoBehaviour, IContact<Gear>, IContact<Player> {
+    public void OnCollision(Gear gear)
+    {
+        gear.effector.enabled = true;
 		gear.gameObject.layer = 0;
 		this.PlaySound("Drop");
-	}
+    }
 
-	public void OnGearTrigger(Gear gear) {
-		gear.effector.enabled = true;
-		gear.gameObject.layer = 0;
-		this.PlaySound("Drop");
-	}
-
-    public virtual void OnPlayerCollision(Player p)
+    public virtual void OnCollision(Player p)
     {
         p.movement.grounded = true;
     }
 
-    public void OnPlayerTrigger(Player p)
+
+    public void OnTrigger(Gear gear)
+    {
+        gear.effector.enabled = true;
+		gear.gameObject.layer = 0;
+		this.PlaySound("Drop");
+    }
+
+    public void OnTrigger(Player t)
     {
         throw new System.NotImplementedException();
     }

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Gear : MonoBehaviour,IPlayerContact {
+public class Gear : MonoBehaviour, IContact<Player> {
 
 	public Rigidbody2D rb2d;
 	public Collider2D col;
 	public PlatformEffector2D effector;
-	public int hp, hpMax;
+	public int hp,
+	hpMax;
 	public float respawnTime;
 	public bool broken = false;
 	public Image HealthBar;
@@ -17,7 +18,7 @@ public class Gear : MonoBehaviour,IPlayerContact {
 	void Start() {
 		hp = hpMax;
 		StartCoroutine(RepeatedHeal());
-		
+
 	}
 
 	// Update is called once per frame
@@ -27,14 +28,13 @@ public class Gear : MonoBehaviour,IPlayerContact {
 
 	void OnTriggerEnter2D(Collider2D other) {
 
-		other.GetComponent<IGearContact>()?.OnGearTrigger(this);
+		other.GetComponent<IContact<Gear>>()?.OnTrigger(this);
 
 	}
 
-	private void OnCollisionEnter2D(Collision2D other)
-	{
+	private void OnCollisionEnter2D(Collision2D other) {
 
-		other.gameObject.GetComponent<IGearContact>()?.OnGearCollision(this);
+		other.gameObject.GetComponent<IContact<Gear>>()?.OnCollision(this);
 	}
 
 	public void TakeDamage(int amnt) {
@@ -64,14 +64,12 @@ public class Gear : MonoBehaviour,IPlayerContact {
 	public IEnumerator RepeatedHeal() {
 		while (true) {
 			yield return new WaitForSeconds(1);
-			if(!broken){
+			if (!broken) {
 				Heal(2);
 			}
 
 		}
 	}
-
-	
 
 	void Respawn() {
 		broken = false;
@@ -85,17 +83,11 @@ public class Gear : MonoBehaviour,IPlayerContact {
 		HealthBar.fillAmount = (float) ((float) hp / (float) hpMax);
 	}
 
-    public void OnPlayerCollision(Player p)
-    {
-        p.movement.grounded = true;
-    }
+	public void OnCollision(Player p) {
+		if (!p.throwGear.holdingGear) {
+			p.movement.grounded = true;
+		}
+	}
 
-    public void OnPlayerTrigger(Player p)
-    {
-    }
-}
-
-public interface IGearContact{
-	void OnGearTrigger(Gear gear);
-	void OnGearCollision(Gear gear);
+	public void OnTrigger(Player p) { }
 }

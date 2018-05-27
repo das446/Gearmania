@@ -31,12 +31,12 @@ public class ElectricGround : Ground,IPuzzleObject {
 		
 	}
 
-    public override void OnPlayerCollision(Player p){
+    public override void OnCollision(Player p){
 		if (deadly){
 			p.Die();
 		}
 		else{
-			base.OnPlayerCollision(p);
+			base.OnCollision(p);
 		}
 	}
 

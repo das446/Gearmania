@@ -139,6 +139,7 @@ public class ThrowGear : MonoBehaviour {
 		}
 		SetLine(Vector2.zero, Vector2.zero);
 		PickUpGear();
+		
 
 	}
 
