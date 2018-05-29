@@ -212,12 +212,14 @@ MonoBehaviour:
   - Robot_Die
   - Shield
   - Drop
+  - Switch
   prevNames: []
   sounds:
   - {fileID: 8300000, guid: f07a72e215bce684498ef445a4fb7b7f, type: 3}
   - {fileID: 8300000, guid: 7ada596ee9f509d4aaf380cb1c2378b2, type: 3}
   - {fileID: 8300000, guid: 28096433a945f424b92d102d69070d56, type: 3}
   - {fileID: 8300000, guid: c613638d523627942acda45982141a71, type: 3}
+  - {fileID: 8300000, guid: 395f63d46005382439f9e6a408540428, type: 3}
   prevSounds: []
   Updated: 0
   DefaultVolume: 0.25

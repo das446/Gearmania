@@ -31,6 +31,13 @@ public class Ground : MonoBehaviour, IContact<Gear>, IContact<Player> {
     // Use this for initialization
     void Start() {
 
+        SpriteRenderer s = gameObject.GetComponent<SpriteRenderer>();
+        if(s.drawMode == SpriteDrawMode.Tiled){
+            BoxCollider2D col = GetComponent<BoxCollider2D>();
+            col.size = new Vector2(s.size.x,col.size.y);
+
+        }
+
 	}
 
 	// Update is called once per frame

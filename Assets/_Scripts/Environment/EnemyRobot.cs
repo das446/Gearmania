@@ -17,7 +17,9 @@ public class EnemyRobot : MonoBehaviour, IContact<Gear>, IContact<Player> {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(transform.position.y < -10){
+			Destroy(gameObject);
+		}
 	}
 
 	void Shoot(){

@@ -22,15 +22,6 @@ public class ElectricGround : Ground,IPuzzleObject {
 
     }
 
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public override void OnCollision(Player p){
 		if (deadly){
 			p.Die();

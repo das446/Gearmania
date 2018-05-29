@@ -14,9 +14,13 @@ public class PuzzleSwitch : MonoBehaviour, IContact<Gear> {
 	float rotSpeed = 50;
 
 	bool enable = true;
+	[SerializeField]LineRenderer lr;
 
 	private void Start() {
 		Ipuzzle = puzzle.GetComponent<IPuzzleObject>();
+		lr.SetPosition(0,transform.position);
+		lr.SetPosition(1,puzzle.transform.position);
+
 	}
 
 	void Update() {
