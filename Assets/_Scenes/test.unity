@@ -822,7 +822,7 @@ SpriteRenderer:
   m_Size: {x: 41.62163, y: 22.680128}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &575401642
 GameObject:
@@ -1883,6 +1883,9 @@ MonoBehaviour:
   minSize: 8
   defaultY: 0
   zoomSpeed: 0
+  background1: {fileID: 0}
+  background2: {fileID: 0}
+  BgScrollSpeed: 1
 --- !u!1001 &1550198734
 Prefab:
   m_ObjectHideFlags: 0
@@ -2050,6 +2053,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114015973108452686, guid: 71e2ad62a4e285349b3fc47ee39d3ba5,
+        type: 2}
+      propertyPath: names.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114015973108452686, guid: 71e2ad62a4e285349b3fc47ee39d3ba5,
+        type: 2}
+      propertyPath: sounds.Array.size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4428085103713634, guid: 71e2ad62a4e285349b3fc47ee39d3ba5, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2082,6 +2095,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114015973108452686, guid: 71e2ad62a4e285349b3fc47ee39d3ba5,
+        type: 2}
+      propertyPath: sounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4aa23f133903a8f408a3150e8339bbfa, type: 3}
+    - target: {fileID: 114015973108452686, guid: 71e2ad62a4e285349b3fc47ee39d3ba5,
+        type: 2}
+      propertyPath: names.Array.data[5]
+      value: Throw
+      objectReference: {fileID: 0}
+    - target: {fileID: 114015973108452686, guid: 71e2ad62a4e285349b3fc47ee39d3ba5,
+        type: 2}
+      propertyPath: names.Array.data[6]
+      value: Zaped
+      objectReference: {fileID: 0}
+    - target: {fileID: 114015973108452686, guid: 71e2ad62a4e285349b3fc47ee39d3ba5,
+        type: 2}
+      propertyPath: sounds.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ea29063b7e435043ad0f9b7f9690c09, type: 3}
+    - target: {fileID: 114015973108452686, guid: 71e2ad62a4e285349b3fc47ee39d3ba5,
+        type: 2}
+      propertyPath: sounds.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f0376aa64f73fa4b98e583b76fe7469, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71e2ad62a4e285349b3fc47ee39d3ba5, type: 2}
   m_IsPrefabParent: 0
@@ -2645,7 +2683,7 @@ SpriteRenderer:
   m_Size: {x: 41.62163, y: 22.680128}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!114 &2078960235
 MonoBehaviour:
