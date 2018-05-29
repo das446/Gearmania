@@ -1,42 +1,37 @@
-﻿using UnityEngine;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System;
 using Helper_Scripts;
+using UnityEngine;
 
 [Serializable]
-public class SoundEffects : MonoBehaviour
-{
+public class SoundEffects : MonoBehaviour {
     public Dictionary<string, AudioClip> sfx;
-    public string test;
-    public List<string> names, prevNames;
-    public List<AudioClip> sounds, prevSounds;
-    public bool Updated;
+    [HideInInspector] public string test;
+    public List<string> names;
+    [HideInInspector] public List<string> prevNames;
+    public List<AudioClip> sounds;
+    [HideInInspector] public List<AudioClip> prevSounds;
+    [HideInInspector] public bool Updated;
     public float DefaultVolume;
     public static SoundEffects DefaultSounds;
 
-    public void PlaySound(string Sound)
-    {
+    public void PlaySound(string Sound) {
         PlaySound(Sound, DefaultVolume);
     }
 
-    public void Start()
-    {
-        if (DefaultSounds == null)
-        {
+    public void Start() {
+        if (DefaultSounds == null) {
             DefaultSounds = this;
         }
-        if (DefaultSounds == this)
-        {
+        if (DefaultSounds == this) {
             DontDestroyOnLoad(this);
         }
     }
 
-    public void PlaySound(string Sound, float volume)
-    {
+    public void PlaySound(string Sound, float volume) {
         //Debug.Log(Music.Source.pitch);
-        if (sfx == null)
-        {
+        if (sfx == null) {
             sfx = new Dictionary<string, AudioClip>();
             sfx.FromLists(names, sounds);
         }
@@ -45,12 +40,9 @@ public class SoundEffects : MonoBehaviour
             AudioClip s = sfx[Sound];
             Music.PlaySound(s, volume);
             Music.Source.pitch = 1;
-        }
-        else if (this!=DefaultSounds)
-        {
+        } else if (this != DefaultSounds) {
             DefaultSounds.PlaySound(Sound, volume);
-        }
-        else {
+        } else {
             Debug.LogWarning("No sound effect named " + Sound);
         }
     }
