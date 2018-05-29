@@ -12,6 +12,7 @@ public class ElectricGround : Ground,IPuzzleObject {
 		GetComponent<SpriteRenderer>().color = Color.red;
 		if(GetComponent<Collider2D>().IsTouching(Player.player.col)){
 			Player.player.Die();
+			this.PlaySound("Zaped");
 		}
     }
 
