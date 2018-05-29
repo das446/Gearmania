@@ -43,7 +43,7 @@ public class EnemyRobot : MonoBehaviour, IContact<Gear>, IContact<Player> {
 
     public void OnCollision(Gear gear)
     {
-        throw new System.NotImplementedException();
+        OnTrigger(gear);
     }
 
     public void OnCollision(Player p)

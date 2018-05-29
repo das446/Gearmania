@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 58026352872113450}
   - component: {fileID: 120524849190677222}
   m_Layer: 0
-  m_Name: Puzzle Switch
+  m_Name: Puzzle Switch Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
