@@ -46,7 +46,6 @@ public class ThrowGear : MonoBehaviour {
 			Vector2 target = getTarget();
 			StartCoroutine(throwGear(target));
 			//ThrowGearPhysics(target);
-			this.PlaySound("Throw");
 		}
 		if(Vector2.Distance(transform.position,gear.transform.position)>30){
 			StartCoroutine(RetrieveGear());
