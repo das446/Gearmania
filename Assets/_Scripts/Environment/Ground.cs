@@ -12,7 +12,7 @@ public class Ground : MonoBehaviour, IContact<Gear>, IContact<Player> {
 
     public virtual void OnCollision(Player p)
     {
-        p.movement.grounded = true;
+        //p.movement.Grounded = true;
     }
 
 
@@ -34,7 +34,8 @@ public class Ground : MonoBehaviour, IContact<Gear>, IContact<Player> {
         SpriteRenderer s = gameObject.GetComponent<SpriteRenderer>();
         if(s.drawMode == SpriteDrawMode.Tiled){
             BoxCollider2D col = GetComponent<BoxCollider2D>();
-            col.size = new Vector2(s.size.x,col.size.y);
+            col.size = new Vector2(s.size.x,0.25f);
+            col.offset = new Vector2(0,0.375f);
 
         }
 

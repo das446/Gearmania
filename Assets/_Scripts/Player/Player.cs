@@ -50,7 +50,7 @@ public class Player : MonoBehaviour {
 		throwGear.SetLine(Vector2.zero, Vector2.zero);
 		movement.rb2d.velocity = Vector2.zero;
 		transform.position = deathPos;
-		movement.grounded = false;
+		//movement.Grounded = false;
 		throwGear.PickUpGear();
 	}
 

@@ -85,7 +85,7 @@ public class Gear : MonoBehaviour, IContact<Player> {
 
 	public void OnCollision(Player p) {
 		if (!p.throwGear.holdingGear) {
-			p.movement.grounded = true;
+			//p.movement.Grounded = true;
 		}
 	}
 
