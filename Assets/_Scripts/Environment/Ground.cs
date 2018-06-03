@@ -2,25 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ground : MonoBehaviour, IContact<Gear>, IContact<Player> {
+public class Ground : MonoBehaviour, IContact<Gear>, IContact<Player>,IExitContact<Player>,IExitContact<Gear> {
     public void OnCollision(Gear gear)
     {
         gear.effector.enabled = true;
 		gear.gameObject.layer = 0;
 		this.PlaySound("Drop");
+        //gear.transform.parent=transform;
     }
 
     public virtual void OnCollision(Player p)
     {
-        //p.movement.Grounded = true;
+        p.transform.parent=transform;
+        p.movement.jumps=2;
     }
 
+    public void OnExitCollision(Player t)
+    {
+        t.transform.parent=null;
+    }
+
+    public void OnExitCollision(Gear t)
+    {
+        //t.transform.parent=null;
+    }
+
+    public void OnExitTrigger(Player t)
+    {
+       t.transform.parent=null;
+    }
+
+    public void OnExitTrigger(Gear t)
+    {
+        //t.transform.parent=null;
+    }
 
     public void OnTrigger(Gear gear)
     {
         gear.effector.enabled = true;
 		gear.gameObject.layer = 0;
 		this.PlaySound("Drop");
+        gear.transform.parent=transform;
     }
 
     public void OnTrigger(Player t)
@@ -29,7 +51,7 @@ public class Ground : MonoBehaviour, IContact<Gear>, IContact<Player> {
     }
 
     // Use this for initialization
-    void Start() {
+    protected void Start() {
 
         SpriteRenderer s = gameObject.GetComponent<SpriteRenderer>();
         if(s.drawMode == SpriteDrawMode.Tiled){
@@ -38,11 +60,6 @@ public class Ground : MonoBehaviour, IContact<Gear>, IContact<Player> {
             col.offset = new Vector2(0,0.375f);
 
         }
-
-	}
-
-	// Update is called once per frame
-	void Update() {
 
 	}
 }

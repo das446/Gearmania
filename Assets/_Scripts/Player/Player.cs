@@ -39,9 +39,16 @@ public class Player : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other) {
 		other.gameObject.GetComponent<IContact<Player>>()?.OnCollision(this);
 	}
+	void OnCollisionExit2D(Collision2D other) {
+		other.gameObject.GetComponent<IExitContact<Player>>()?.OnExitCollision(this);
+	}
 
 	void OnTriggerEnter2D(Collider2D other) {
 		other.GetComponent<IContact<Player>>()?.OnTrigger(this);
+	}
+
+	void OnTriggerExit2D(Collider2D other) {
+		other.GetComponent<IExitContact<Player>>()?.OnExitTrigger(this);
 	}
 
 	public void Die() {
@@ -59,4 +66,9 @@ public class Player : MonoBehaviour {
 public interface IContact<T>{
 	void OnCollision(T t);
 	void OnTrigger(T t);
+}
+
+public interface IExitContact<T>{
+	void OnExitCollision(T t);
+	void OnExitTrigger(T t);
 }

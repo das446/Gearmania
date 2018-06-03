@@ -11,14 +11,20 @@ public class PlayerMovement : MonoBehaviour {
 	[SerializeField] public Player player;
 	public float distToGround;
 	BoxCollider2D collider;
+	public int jumps = 2;
+
+	bool shouldJump=false;
 
 	public bool Grounded {
 		get {
-			int x = ~(1 << 8);
+			int layerMask = ~(1 << 8); //doesn't hit self
 			Vector3 t = transform.position + Vector3.down * distToGround * 0.9f;
-			return Physics2D.Raycast(t, Vector3.down, 0.2f, x) ||
-				Physics2D.Raycast(t + Vector3.right * 0.5f, Vector3.down, 0.2f, x) ||
-				Physics2D.Raycast(t = Vector3.left * 0.5f, Vector3.down, 0.2f, x);
+
+			//3 raycasts so i doesn't miss the sides of the gear
+			bool g = Physics2D.Raycast(t, Vector3.down, 0.2f, layerMask) ||
+				Physics2D.Raycast(t + Vector3.right * 0.5f, Vector3.down, 0.2f, layerMask) ||
+				Physics2D.Raycast(t = Vector3.left * 0.5f, Vector3.down, 0.2f, layerMask);
+			return g;
 		}
 
 	}
@@ -42,18 +48,25 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void Jump() {
+		transform.parent = null;
+		if (!grounded) {
+			jumps--;
+			rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+		}
 		rb2d.AddForce(Vector3.up * jumpForce);
 		//Grounded = false;
 		this.PlaySound("Jump", randomPitch : true);
+
 	}
 
 	void Update() {
 		MoveH();
-		if ((Input.GetButtonDown("Jump") || Input.GetButtonDown("Jump2")) && Grounded) {
-			//Debug.Log("Jump");
+		if ((Input.GetButtonDown("Jump") || Input.GetButtonDown("Jump2")) && CanJump()) {
 			Jump();
-		} else if ((Input.GetButtonDown("Jump") || Input.GetButtonDown("Jump2"))) {
-			Debug.Log("Not Grounded");
 		}
+	}
+
+	bool CanJump() {
+		return grounded || jumps>0;
 	}
 }

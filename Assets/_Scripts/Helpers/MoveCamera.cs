@@ -11,6 +11,9 @@ public class MoveCamera : MonoBehaviour {
     public float WorldMinX=Mathf.NegativeInfinity, WorldMaxX=Mathf.Infinity, WorldMinY=Mathf.NegativeInfinity, WorldMaxY=Mathf.Infinity;
     //public DrawJump dj;
     public Vector3 Offset;
+
+    public GameObject background;
+    public float BgScrollSpeed;
 	// Use this for initialization
 	void Start () {
         GameObject levelCanvas = GameObject.Find("Level Canvas");
@@ -45,7 +48,7 @@ public class MoveCamera : MonoBehaviour {
         if (transform.position.x > WorldMaxX) { transform.position = transform.position.setX(WorldMaxX); }
         if (transform.position.y < WorldMinY) { transform.position = transform.position.setY(WorldMinY); }
         if (transform.position.y > WorldMaxY) { transform.position = transform.position.setY(WorldMaxY); }
-        
+        background.transform.position= new Vector3(-transform.position.x/BgScrollSpeed,0,0);
 
 
     }

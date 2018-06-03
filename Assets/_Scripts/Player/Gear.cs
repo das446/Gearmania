@@ -32,9 +32,20 @@ public class Gear : MonoBehaviour, IContact<Player> {
 
 	}
 
+	void OnTriggerExit2D(Collider2D other) {
+
+		other.GetComponent<IExitContact<Gear>>()?.OnExitTrigger(this);
+
+	}
+
 	private void OnCollisionEnter2D(Collision2D other) {
 
 		other.gameObject.GetComponent<IContact<Gear>>()?.OnCollision(this);
+	}
+
+	private void OnCollisionExit2D(Collision2D other) {
+
+		other.gameObject.GetComponent<IExitContact<Gear>>()?.OnExitCollision(this);
 	}
 
 	public void TakeDamage(int amnt) {
