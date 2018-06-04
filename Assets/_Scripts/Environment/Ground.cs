@@ -40,6 +40,7 @@ public class Ground : MonoBehaviour, IContact<Gear>, IContact<Player>,IExitConta
 
     public void OnTrigger(Gear gear)
     {
+        if(Player.player.throwGear.holdingGear){return;}
         gear.effector.enabled = true;
 		gear.gameObject.layer = 0;
 		this.PlaySound("Drop");
