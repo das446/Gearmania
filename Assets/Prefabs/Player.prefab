@@ -108,6 +108,8 @@ GameObject:
   - component: {fileID: 61489406594590392}
   - component: {fileID: 114676563696695994}
   - component: {fileID: 114498150816041486}
+  - component: {fileID: 111591585069756608}
+  - component: {fileID: 95401149829403152}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -303,6 +305,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.7862287}
   m_EdgeRadius: 0
+--- !u!95 &95401149829403152
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1939442181979250}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: abc5e26df1db22f48bbb792d45a8b941, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &111591585069756608
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1939442181979250}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: baadb0715cd485f42b012df966722578, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114197294804657918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -319,6 +353,7 @@ MonoBehaviour:
   deathPos: {x: 0, y: 1}
   movement: {fileID: 0}
   throwGear: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &114498150816041486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -335,6 +370,7 @@ MonoBehaviour:
   jumpForce: 1250
   player: {fileID: 114197294804657918}
   distToGround: 0
+  jumps: 2
 --- !u!114 &114530673219109234
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -72,6 +72,9 @@ public class ThrowGear : MonoBehaviour {
 	}
 
 	public IEnumerator throwGear(Vector2 target) {
+
+		Player.player.animator.SetTrigger("Throw");
+
 		Vector2 dir = target - (Vector2) gear.transform.position;
 
 		holdingGear = false;
@@ -111,6 +114,8 @@ public class ThrowGear : MonoBehaviour {
 	}
 
 	IEnumerator RetrieveGear(bool drawGrapple = true) {
+
+		Player.player.animator.SetTrigger("Throw");
 
 		Vector2 target = gear.transform.position;
 		Vector2 cur = transform.position;

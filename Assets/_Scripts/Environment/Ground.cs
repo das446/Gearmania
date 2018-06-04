@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ground : MonoBehaviour, IContact<Gear>, IContact<Player>,IExitContact<Player>,IExitContact<Gear> {
     public void OnCollision(Gear gear)
     {
+        if(Player.player.throwGear.holdingGear){return;}
         gear.effector.enabled = true;
 		gear.gameObject.layer = 0;
 		this.PlaySound("Drop");

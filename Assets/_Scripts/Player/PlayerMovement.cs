@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		rb2d.AddForce(Vector3.up * jumpForce);
 		//Grounded = false;
+		player.animator.SetTrigger("Jump");
 		this.PlaySound("Jump", randomPitch : true);
 
 	}

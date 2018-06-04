@@ -16,10 +16,17 @@ public class Player : MonoBehaviour {
 	public PlayerMovement movement;
 	public ThrowGear throwGear;
 
+	public Animator animator;
+
+
+
+
+
 	void Start() {
 		player = this;
 		movement = GetComponent<PlayerMovement>();
 		throwGear = GetComponent<ThrowGear>();
+		animator = GetComponent<Animator>();
 	}
 
 	void Update() {
@@ -27,11 +34,11 @@ public class Player : MonoBehaviour {
 		if (transform.position.y < -10) {
 			Die();
 		}
-		if(Input.GetKeyDown(KeyCode.Escape)){
+		if (Input.GetKeyDown(KeyCode.Escape)) {
 			Application.Quit();
 		}
 
-		if(Input.GetKeyDown(KeyCode.R)){
+		if (Input.GetKeyDown(KeyCode.R)) {
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 	}
@@ -51,24 +58,38 @@ public class Player : MonoBehaviour {
 		other.GetComponent<IExitContact<Player>>()?.OnExitTrigger(this);
 	}
 
-	public void Die() {
+	IEnumerator DieHelper() {
+		
+		yield return new WaitForSeconds(1);
+		transform.position = deathPos;
+		//movement.Grounded = false;
+		throwGear.DropGear();
+		throwGear.PickUpGear();
+		movement.enabled=true;
+		throwGear.enabled=true;
+	}
+
+	public void Die(){
+		Debug.Log("Die");
 		StopAllCoroutines();
 		throwGear.StopAllCoroutines();
 		throwGear.SetLine(Vector2.zero, Vector2.zero);
 		movement.rb2d.velocity = Vector2.zero;
-		transform.position = deathPos;
-		//movement.Grounded = false;
-		throwGear.PickUpGear();
+
+		animator.SetTrigger("Die");
+		movement.enabled=false;
+		throwGear.enabled=false;
+		StartCoroutine(DieHelper());
 	}
 
 }
 
-public interface IContact<T>{
+public interface IContact<T> {
 	void OnCollision(T t);
 	void OnTrigger(T t);
 }
 
-public interface IExitContact<T>{
+public interface IExitContact<T> {
 	void OnExitCollision(T t);
 	void OnExitTrigger(T t);
 }
