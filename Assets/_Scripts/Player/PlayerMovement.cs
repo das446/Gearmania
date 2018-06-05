@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour {
 		} else if (x > 0) {
 			transform.eulerAngles = Vector3.zero;
 		}
+
+		player.animator.SetFloat("Speed",Mathf.Abs(x));
 	}
 
 	void Jump() {
