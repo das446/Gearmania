@@ -101,6 +101,9 @@ public class ThrowGear : MonoBehaviour {
 	}
 
 	public void PickUpGear() {
+		if(transform.parent==gear.transform){
+			transform.parent=null;
+		}
 		gear.transform.parent = hand.transform;
 		//gear.col.isTrigger = true;
 		gear.transform.localPosition = Vector3.zero;
@@ -115,6 +118,10 @@ public class ThrowGear : MonoBehaviour {
 
 	IEnumerator RetrieveGear(bool drawGrapple = true) {
 
+		if(transform.parent==gear.transform){
+			yield break;
+		}
+
 		Player.player.animator.SetTrigger("Throw");
 
 		Vector2 target = gear.transform.position;
@@ -123,7 +130,7 @@ public class ThrowGear : MonoBehaviour {
 
 		if (drawGrapple) {
 			//move line to gear
-			while (Vector2.Distance(cur, target) > 0.5f) {
+			while (Vector2.Distance(cur, target) > 1) {
 				cur = Vector3.MoveTowards(cur, target, speed * Time.deltaTime);
 				SetLine(transform.position, cur);
 				yield return null;

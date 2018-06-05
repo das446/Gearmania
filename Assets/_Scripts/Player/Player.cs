@@ -18,10 +18,6 @@ public class Player : MonoBehaviour {
 
 	public Animator animator;
 
-
-
-
-
 	void Start() {
 		player = this;
 		movement = GetComponent<PlayerMovement>();
@@ -32,7 +28,7 @@ public class Player : MonoBehaviour {
 	void Update() {
 
 		if (transform.position.y < -10) {
-			Die();
+			Die(true);
 		}
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			Application.Quit();
@@ -59,27 +55,34 @@ public class Player : MonoBehaviour {
 	}
 
 	IEnumerator DieHelper() {
-		
+
 		yield return new WaitForSeconds(1);
 		transform.position = deathPos;
 		//movement.Grounded = false;
 		throwGear.DropGear();
 		throwGear.PickUpGear();
-		movement.enabled=true;
-		throwGear.enabled=true;
+		movement.enabled = true;
+		throwGear.enabled = true;
 	}
 
-	public void Die(){
+	public void Die(bool fall = false) {
 		Debug.Log("Die");
 		StopAllCoroutines();
 		throwGear.StopAllCoroutines();
 		throwGear.SetLine(Vector2.zero, Vector2.zero);
 		movement.rb2d.velocity = Vector2.zero;
-
-		animator.SetTrigger("Die");
-		movement.enabled=false;
-		throwGear.enabled=false;
-		StartCoroutine(DieHelper());
+		movement.enabled = false;
+		throwGear.enabled = false;
+		if (fall) {
+			transform.position = deathPos;
+			throwGear.DropGear();
+			throwGear.PickUpGear();
+			movement.enabled = true;
+			throwGear.enabled = true;
+		} else {
+			animator.SetTrigger("Die");
+			StartCoroutine(DieHelper());
+		}
 	}
 
 }

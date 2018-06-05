@@ -5,6 +5,16 @@ using UnityEngine;
 public class ConveyerBelt : Ground {
 
 	public float speed;
+
+	public override void Start()
+	{
+
+		base.Start();
+
+		if(speed>0){
+			GetComponent<Animator>().SetFloat("Speed",-speed/2);
+		}
+	}
 	private void Update()
 	{
 		int childCount = transform.childCount;

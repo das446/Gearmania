@@ -5,11 +5,11 @@ using UnityEngine;
 public class Ground : MonoBehaviour, IContact<Gear>, IContact<Player>,IExitContact<Player>,IExitContact<Gear> {
     public void OnCollision(Gear gear)
     {
-        if(Player.player.throwGear.holdingGear){return;}
+        if(Player.player.throwGear.holdingGear || gear.rb2d.bodyType!=RigidbodyType2D.Dynamic){return;}
         gear.effector.enabled = true;
 		gear.gameObject.layer = 0;
 		this.PlaySound("Drop");
-        //gear.transform.parent=transform;
+        gear.transform.parent=transform;
     }
 
     public virtual void OnCollision(Player p)
@@ -53,7 +53,7 @@ public class Ground : MonoBehaviour, IContact<Gear>, IContact<Player>,IExitConta
     }
 
     // Use this for initialization
-    protected void Start() {
+    public virtual void Start() {
 
         SpriteRenderer s = gameObject.GetComponent<SpriteRenderer>();
         if(s.drawMode == SpriteDrawMode.Tiled){

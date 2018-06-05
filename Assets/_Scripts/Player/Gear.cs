@@ -95,8 +95,9 @@ public class Gear : MonoBehaviour, IContact<Player> {
 	}
 
 	public void OnCollision(Player p) {
-		if (!p.throwGear.holdingGear) {
-			//p.movement.Grounded = true;
+		if (!p.throwGear.holdingGear && gameObject.layer!=9) {
+			p.transform.parent=transform;
+			p.movement.jumps=2;
 		}
 	}
 
