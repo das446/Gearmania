@@ -37,6 +37,10 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.R)) {
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
+
+		if(Input.GetKeyDown(KeyCode.N)){
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
