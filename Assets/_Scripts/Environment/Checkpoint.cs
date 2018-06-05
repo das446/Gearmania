@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour, IContact<Player> {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public Sprite activeSprite;
+
+	bool active=false;
+
 
 	public void OnTrigger(Player p){
+		if(active){return;}
 		p.deathPos=transform.position;
+		GetComponent<SpriteRenderer>().sprite=activeSprite;
 	}
 
 	public void OnCollision(Player p){
