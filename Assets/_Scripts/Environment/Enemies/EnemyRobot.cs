@@ -11,12 +11,12 @@ public class EnemyRobot : MonoBehaviour, IContact<Gear>, IContact<Player> {
 	public Vector3 shootOffset;
 
 
-	void Start () {
+	public virtual void Start () {
 		InvokeRepeating("Shoot",1,shootTime/2);
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public virtual void Update () {
 		if(transform.position.y < -10){
 			Destroy(gameObject);
 		}

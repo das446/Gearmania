@@ -218,29 +218,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1063693389473300, guid: f55d8730e5ada404e9df7660e3c8e091, type: 2}
-      propertyPath: m_Name
-      value: Main Camera (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 114414453225253428, guid: f55d8730e5ada404e9df7660e3c8e091,
         type: 2}
       propertyPath: background
       value: 
       objectReference: {fileID: 239405789}
-    - target: {fileID: 114414453225253428, guid: f55d8730e5ada404e9df7660e3c8e091,
-        type: 2}
-      propertyPath: BgScrollSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114414453225253428, guid: f55d8730e5ada404e9df7660e3c8e091,
-        type: 2}
-      propertyPath: maxX
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114414453225253428, guid: f55d8730e5ada404e9df7660e3c8e091,
-        type: 2}
-      propertyPath: minX
-      value: -1
+    - target: {fileID: 1063693389473300, guid: f55d8730e5ada404e9df7660e3c8e091, type: 2}
+      propertyPath: m_Name
+      value: Main Camera (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f55d8730e5ada404e9df7660e3c8e091, type: 2}
