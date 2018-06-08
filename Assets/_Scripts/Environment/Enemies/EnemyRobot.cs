@@ -28,7 +28,7 @@ public class EnemyRobot : MonoBehaviour, IContact<Gear>, IContact<Player> {
 		}
 	}
 
-    public void OnTrigger(Gear gear)
+    public virtual void OnTrigger(Gear gear)
     {
         
 			this.PlaySound("Robot_Die");
@@ -41,7 +41,7 @@ public class EnemyRobot : MonoBehaviour, IContact<Gear>, IContact<Player> {
 			Destroy(gameObject);
     }
 
-    public void OnCollision(Gear gear)
+    public virtual void OnCollision(Gear gear)
     {
         OnTrigger(gear);
     }
