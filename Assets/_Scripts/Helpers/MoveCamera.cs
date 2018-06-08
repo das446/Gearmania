@@ -12,8 +12,10 @@ public class MoveCamera : MonoBehaviour {
     //public DrawJump dj;
     public Vector3 Offset;
 
-    public GameObject background;
+    public GameObject background1, background2;
     public float BgScrollSpeed;
+    public float d=50;
+    public float nextSwap=50;
 	// Use this for initialization
 	void Start () {
         GameObject levelCanvas = GameObject.Find("Level Canvas");
@@ -23,6 +25,7 @@ public class MoveCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        float prevX = transform.position.x;
         if (Target == null) { Target = GameObject.Find("Player"); }
         if (Target == null) { return; }
         Vector3 target=Target.transform.position+Offset;
@@ -48,7 +51,21 @@ public class MoveCamera : MonoBehaviour {
         if (transform.position.x > WorldMaxX) { transform.position = transform.position.setX(WorldMaxX); }
         if (transform.position.y < WorldMinY) { transform.position = transform.position.setY(WorldMinY); }
         if (transform.position.y > WorldMaxY) { transform.position = transform.position.setY(WorldMaxY); }
-        background.transform.position= new Vector3(-transform.position.x/BgScrollSpeed,0,0);
+
+        background1.transform.Translate(new Vector3(prevX - transform.position.x / BgScrollSpeed, 0, 0));
+		background2.transform.Translate(new Vector3(prevX - transform.position.x / BgScrollSpeed, 0, 0));
+		if (background2.transform.position.x < 0 && background1.transform.position.x < 0) {
+			background1.transform.position = background2.transform.position+Vector3.right*d;
+			GameObject temp = background1;
+			background1 = background2;
+			background2 = temp;
+		}
+        if (background2.transform.position.x > 0 && background1.transform.position.x > 0) {
+			background2.transform.position = background1.transform.position+Vector3.left*d;
+			GameObject temp = background1;
+			background1 = background2;
+			background2 = temp;
+		}
 
 
     }

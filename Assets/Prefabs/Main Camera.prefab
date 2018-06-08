@@ -108,8 +108,10 @@ MonoBehaviour:
   WorldMinY: 3
   WorldMaxY: Infinity
   Offset: {x: 0, y: 4, z: 0}
-  background: {fileID: 0}
+  background1: {fileID: 0}
+  background2: {fileID: 0}
   BgScrollSpeed: 1
+  d: 50
 --- !u!114 &114505038850052160
 MonoBehaviour:
   m_ObjectHideFlags: 1

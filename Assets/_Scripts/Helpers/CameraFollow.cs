@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour {
 
 	public GameObject background1;
 	public GameObject background2;
-	float d;
+	float d = 50;
 	public float BgScrollSpeed = 1;
 
 	void Start() {
@@ -31,9 +31,8 @@ public class CameraFollow : MonoBehaviour {
 		} else if (Input.GetKey(KeyCode.O) && Camera.main.orthographicSize >= minSize) {
 			Zoom(-2);
 		}
+
 		
-		background1.transform.position= new Vector3(-transform.position.x/BgScrollSpeed,0,0);
-		//background2.transform.position= new Vector3(-transform.position.x/BgScrollSpeed + d,0,0);
 
 	}
 
