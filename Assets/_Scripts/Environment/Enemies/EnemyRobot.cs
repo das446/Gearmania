@@ -11,12 +11,12 @@ public class EnemyRobot : MonoBehaviour, IContact<Gear>, IContact<Player> {
 	public Vector3 shootOffset;
 
 
-	void Start () {
+	public virtual void Start () {
 		InvokeRepeating("Shoot",1,shootTime/2);
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public virtual void Update () {
 		if(transform.position.y < -10){
 			Destroy(gameObject);
 		}
@@ -28,7 +28,7 @@ public class EnemyRobot : MonoBehaviour, IContact<Gear>, IContact<Player> {
 		}
 	}
 
-    public void OnTrigger(Gear gear)
+    public virtual void OnTrigger(Gear gear)
     {
         
 			this.PlaySound("Robot_Die");
@@ -41,7 +41,7 @@ public class EnemyRobot : MonoBehaviour, IContact<Gear>, IContact<Player> {
 			Destroy(gameObject);
     }
 
-    public void OnCollision(Gear gear)
+    public virtual void OnCollision(Gear gear)
     {
         OnTrigger(gear);
     }
