@@ -9,14 +9,16 @@ public class PuzzleSwitch : MonoBehaviour, IContact<Gear> {
 	[SerializeField] public IPuzzleObject Ipuzzle;
 	bool valid = false;
 
-	bool rotate = false;
+	protected bool rotate = false;
 
 	float rotSpeed = 50;
 
-	bool enable = true;
+	protected bool enable = true;
 	[SerializeField]LineRenderer lr;
+	public Collider2D col;
 
 	private void Start() {
+		col = GetComponent<Collider2D>();
 		Ipuzzle = puzzle.GetComponent<IPuzzleObject>();
 		lr.SetPosition(0,transform.position);
 		lr.SetPosition(1,puzzle.transform.position);

@@ -13,11 +13,11 @@ public class Parralax : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		if (Player.player.transform.position.x >= nextX) {
+		if (Camera.main.transform.position.x >= nextX) {
 			SpawnObject();
 			nextX += spawnD + Random.Range(-1f, 1f);
 		}
-		transform.position = new Vector3(-Player.player.transform.position.x * 1.5f, 0, 0);
+		transform.position = new Vector3(-Camera.main.transform.position.x * 1.5f, 0, 0);
 
 	}
 

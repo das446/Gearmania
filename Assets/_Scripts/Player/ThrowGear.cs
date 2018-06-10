@@ -25,7 +25,7 @@ public class ThrowGear : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 
-		if (gear.broken) { return; }
+		if (gear.broken || Time.timeScale==0) { return; }
 		if (gear.transform.position.y < -10) {
 			PickUpGear();
 			gear.TakeDamage(25);

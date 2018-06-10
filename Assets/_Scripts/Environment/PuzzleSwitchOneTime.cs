@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PuzzleSwitchOneTime : PuzzleSwitch {
-
-	private void OnTriggerExit2D(Collider2D other) {
+	void OnTriggerExit2D(Collider2D other) {
 		if (other.gameObject.GetComponent<Gear>()) {
 			other.transform.parent = null;
 			other.transform.rotation = Quaternion.identity;
+			col.enabled=false;
 			//see enableCol
 		}
 	}
