@@ -48,7 +48,7 @@ public class EnemyRobot : MonoBehaviour, IContact<Gear>, IContact<Player> {
 
     public void OnCollision(Player p)
     {
-        throw new System.NotImplementedException();
+        p.Die();
     }
 
     public void OnTrigger(Player p)
