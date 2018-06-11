@@ -6,6 +6,7 @@ public class Shield : MonoBehaviour,IContact<Gear> {
 
 	 public void OnCollision(Gear g)
     {
+        if(Player.player.throwGear.holdingGear){return;}
 		Debug.Log("Shield");
         g.StopAllCoroutines();
 		Player.player.throwGear.StopAllCoroutines();

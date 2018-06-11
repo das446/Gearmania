@@ -1477,7 +1477,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ff300ec0053999c4e99169e2849b2493,
+      objectReference: {fileID: 21300000, guid: a3d8f8299346a24419129cb9dfc0c9c9,
         type: 3}
     - target: {fileID: 212053800898059364, guid: 47a7e56cc2fa4ec4e873246f32f221d2,
         type: 2}
@@ -1487,12 +1487,12 @@ Prefab:
     - target: {fileID: 212053800898059364, guid: 47a7e56cc2fa4ec4e873246f32f221d2,
         type: 2}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212053800898059364, guid: 47a7e56cc2fa4ec4e873246f32f221d2,
         type: 2}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114116465485220254, guid: 47a7e56cc2fa4ec4e873246f32f221d2, type: 2}
@@ -1619,3 +1619,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a914890ab84274ca33056e8c06f51a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!111 &1916981542
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1916981540}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: d463fda2ecaa89d42b64bb12f87bebd2, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

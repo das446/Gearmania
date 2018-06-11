@@ -46,7 +46,7 @@ public class Pauser : MonoBehaviour {
 		if (Paused && !PauseMenu.gameObject.activeSelf) {
 			PauseMenu.gameObject.SetActive(true);
 		}
-		Debug.Log("Pause Menu Active=" + PauseMenu.gameObject.activeSelf);
+//		Debug.Log("Pause Menu Active=" + PauseMenu.gameObject.activeSelf);
 	}
 
 	public void PausePressed() {
