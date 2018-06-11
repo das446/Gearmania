@@ -215,6 +215,7 @@ MonoBehaviour:
   - Switch
   - Throw
   - Zaped
+  - Fire
   prevNames: []
   sounds:
   - {fileID: 8300000, guid: f07a72e215bce684498ef445a4fb7b7f, type: 3}
@@ -222,8 +223,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 28096433a945f424b92d102d69070d56, type: 3}
   - {fileID: 8300000, guid: 4aa23f133903a8f408a3150e8339bbfa, type: 3}
   - {fileID: 8300000, guid: 395f63d46005382439f9e6a408540428, type: 3}
-  - {fileID: 8300000, guid: 4ea29063b7e435043ad0f9b7f9690c09, type: 3}
+  - {fileID: 8300000, guid: fbc2a92bda216ae4b82f593c8d79739e, type: 3}
   - {fileID: 8300000, guid: 7f0376aa64f73fa4b98e583b76fe7469, type: 3}
+  - {fileID: 8300000, guid: e683b45612ac42145a9889a9bfe3b190, type: 3}
   prevSounds: []
   Updated: 0
   DefaultVolume: 0.25
