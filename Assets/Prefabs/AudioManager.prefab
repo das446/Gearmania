@@ -215,8 +215,13 @@ MonoBehaviour:
   - Switch
   - Throw
   - Zaped
-  - Coin
+  - Coins
   - Checkpoint
+  - Fire
+  - Win
+  - Select
+  - OnHit
+  - Sheild
   prevNames: []
   sounds:
   - {fileID: 8300000, guid: f07a72e215bce684498ef445a4fb7b7f, type: 3}
@@ -228,6 +233,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7f0376aa64f73fa4b98e583b76fe7469, type: 3}
   - {fileID: 8300000, guid: cc089532700aed04eaaf9b3068a663a9, type: 3}
   - {fileID: 8300000, guid: 22b1ab2ecbef1db488beafe34fc8bb96, type: 3}
+  - {fileID: 8300000, guid: 49e68cce5e24f604a98b17d27c642d14, type: 3}
+  - {fileID: 8300000, guid: 63bff565b0b3d6e438c5d1cc7f0c49c1, type: 3}
+  - {fileID: 8300000, guid: 72e860eb159d6a447908c6b33dc11b79, type: 3}
+  - {fileID: 8300000, guid: 99d6cfca0d7c1a9438018a9fcdb4a9ec, type: 3}
+  - {fileID: 8300000, guid: 1d01db853a91ac64c9602a1f2b04ac75, type: 3}
   prevSounds: []
   Updated: 0
   DefaultVolume: 0.25
