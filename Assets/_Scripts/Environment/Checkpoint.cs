@@ -10,8 +10,9 @@ public class Checkpoint : MonoBehaviour, IContact<Player> {
 
 
 	public void OnTrigger(Player p){
-		this.PlaySound("Checkpoint");
 		if(active){return;}
+		active=true;
+		this.PlaySound("Checkpoint");
 		p.deathPos=transform.position;
 		GetComponent<SpriteRenderer>().sprite=activeSprite;
 	}
