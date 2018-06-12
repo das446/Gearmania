@@ -22,13 +22,13 @@ public class Moving : MonoBehaviour {
 		if (transform.position == (Vector3) target) {
 			if (target == pos1) {
 				target = pos2;
-				if (flip) {
-
-				}
+				
 			} else {
 				target = pos1;
 			}
-			sr.flipX = !sr.flipX;
+			if(flip){
+				sr.flipX = !sr.flipX;
+			}
 		}
 	}
 
