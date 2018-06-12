@@ -24,6 +24,7 @@ public class EnemyRobot : MonoBehaviour, IContact<Gear>, IContact<Player> {
 
 	void Shoot(){
 		if(Vector2.Distance(transform.position,Player.player.transform.position)<20){
+			this.PlaySound("Fire");
 			Instantiate<Bullet>(bulletPrefab,transform.position-shootOffset,transform.rotation);
 		}
 	}

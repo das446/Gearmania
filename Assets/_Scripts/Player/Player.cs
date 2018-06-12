@@ -77,6 +77,7 @@ public class Player : MonoBehaviour {
 		movement.rb2d.velocity = Vector2.zero;
 		movement.enabled = false;
 		throwGear.enabled = false;
+		this.PlaySound("OnHit");
 		if (fall) {
 			transform.position = deathPos;
 			throwGear.DropGear();
