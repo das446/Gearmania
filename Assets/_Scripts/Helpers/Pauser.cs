@@ -24,7 +24,7 @@ public class Pauser : MonoBehaviour {
 	void Start() {
 		if (PauseMenu == null) {
 			Debug.Log("PauseMenu==null");
-			PauseMenu = Resources.FindObjectsOfTypeAll<PauseMenu>() [0];
+			PauseMenu = Resources.FindObjectsOfTypeAll<PauseMenu>()[0];
 		}
 		BaseTimeScale = Time.timeScale;
 		//PauseMenu.gameObject.SetActive(false);
