@@ -56,5 +56,6 @@ public class Bullet : MonoBehaviour, IContact<Gear>, IContact<Player> {
     public void OnTrigger(Player p)
     {
         p.Die();
+		this.PlaySound("OnHit");
     }
 }

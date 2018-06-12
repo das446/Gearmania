@@ -215,7 +215,8 @@ MonoBehaviour:
   - Switch
   - Throw
   - Zaped
-  - Fire
+  - Coin
+  - Checkpoint
   prevNames: []
   sounds:
   - {fileID: 8300000, guid: f07a72e215bce684498ef445a4fb7b7f, type: 3}
@@ -225,7 +226,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 395f63d46005382439f9e6a408540428, type: 3}
   - {fileID: 8300000, guid: fbc2a92bda216ae4b82f593c8d79739e, type: 3}
   - {fileID: 8300000, guid: 7f0376aa64f73fa4b98e583b76fe7469, type: 3}
-  - {fileID: 8300000, guid: e683b45612ac42145a9889a9bfe3b190, type: 3}
+  - {fileID: 8300000, guid: cc089532700aed04eaaf9b3068a663a9, type: 3}
+  - {fileID: 8300000, guid: 22b1ab2ecbef1db488beafe34fc8bb96, type: 3}
   prevSounds: []
   Updated: 0
   DefaultVolume: 0.25

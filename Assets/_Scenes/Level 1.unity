@@ -175,6 +175,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4845559554314576, guid: 47a7e56cc2fa4ec4e873246f32f221d2,
     type: 2}
   m_PrefabInternal: {fileID: 1448408024}
+--- !u!1 &111267733 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1511902588337980, guid: 9b652bdea9ee4e846bce41c4173677ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 752584621}
 --- !u!1 &132329020 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1467508087407206, guid: 47a7e56cc2fa4ec4e873246f32f221d2,
@@ -196,10 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d83427d668f26419916a9422dcd8dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos1: {x: 0, y: 0}
-  pos2: {x: 45, y: 2.7}
-  target: {x: 0, y: 0}
-  speed: 3
 --- !u!1001 &308076609
 Prefab:
   m_ObjectHideFlags: 0
@@ -967,7 +968,7 @@ Prefab:
         type: 2}
       propertyPath: background1
       value: 
-      objectReference: {fileID: 1176053434}
+      objectReference: {fileID: 111267733}
     - target: {fileID: 1063693389473300, guid: f55d8730e5ada404e9df7660e3c8e091, type: 2}
       propertyPath: m_Name
       value: Main Camera (1)
@@ -987,6 +988,21 @@ Prefab:
       propertyPath: minY
       value: -4
       objectReference: {fileID: 0}
+    - target: {fileID: 114505038850052160, guid: f55d8730e5ada404e9df7660e3c8e091,
+        type: 2}
+      propertyPath: background2
+      value: 
+      objectReference: {fileID: 1176053434}
+    - target: {fileID: 114414453225253428, guid: f55d8730e5ada404e9df7660e3c8e091,
+        type: 2}
+      propertyPath: background1
+      value: 
+      objectReference: {fileID: 111267733}
+    - target: {fileID: 114414453225253428, guid: f55d8730e5ada404e9df7660e3c8e091,
+        type: 2}
+      propertyPath: background2
+      value: 
+      objectReference: {fileID: 1176053434}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f55d8730e5ada404e9df7660e3c8e091, type: 2}
   m_IsPrefabParent: 0
@@ -2336,10 +2352,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d83427d668f26419916a9422dcd8dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos1: {x: 0, y: 0}
-  pos2: {x: 74.7, y: 9}
-  target: {x: 0, y: 0}
-  speed: 5
 --- !u!114 &2130178384
 MonoBehaviour:
   m_ObjectHideFlags: 0
