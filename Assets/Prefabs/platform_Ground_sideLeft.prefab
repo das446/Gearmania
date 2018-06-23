@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4878138907198388}
   - component: {fileID: 212253317787721078}
   - component: {fileID: 61851157697539142}
+  - component: {fileID: 114614805018392488}
   m_Layer: 0
   m_Name: platform_Ground_sideLeft
   m_TagString: Untagged
@@ -66,6 +67,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114614805018392488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1560837422553808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97723d3bea88bcb45ada023d604b1e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixCol: 1
 --- !u!212 &212253317787721078
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ground : MonoBehaviour, IContact<Gear>, IContact<Player>,IExitContact<Player>,IExitContact<Gear> {
+
+    public bool fixCol=true;
     public void OnCollision(Gear gear)
     {
         if(Player.player.throwGear.holdingGear || gear.rb2d.bodyType!=RigidbodyType2D.Dynamic){return;}
@@ -56,10 +58,10 @@ public class Ground : MonoBehaviour, IContact<Gear>, IContact<Player>,IExitConta
     public virtual void Start() {
 
         SpriteRenderer s = gameObject.GetComponent<SpriteRenderer>();
-        if(s.drawMode == SpriteDrawMode.Tiled){
+        if(s.drawMode == SpriteDrawMode.Tiled && fixCol){
             BoxCollider2D col = GetComponent<BoxCollider2D>();
-            col.size = new Vector2(s.size.x,0.25f);
-            col.offset = new Vector2(0,0.375f);
+            col.size = new Vector2(s.size.x,1);
+            col.offset = new Vector2(s.size.x/2,-s.size.y/2);
 
         }
 

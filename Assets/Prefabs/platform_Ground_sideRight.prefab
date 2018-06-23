@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4934070579538910}
   - component: {fileID: 212566414323416182}
   - component: {fileID: 61276073742675622}
+  - component: {fileID: 114966954140652526}
   m_Layer: 0
   m_Name: platform_Ground_sideRight
   m_TagString: Untagged
@@ -62,10 +63,22 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
-  m_AutoTiling: 1
+  m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114966954140652526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1447705679866362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97723d3bea88bcb45ada023d604b1e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixCol: 1
 --- !u!212 &212566414323416182
 SpriteRenderer:
   m_ObjectHideFlags: 1

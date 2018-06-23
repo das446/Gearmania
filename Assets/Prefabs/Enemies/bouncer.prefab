@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50472782217093420}
   - component: {fileID: 61998487298079338}
   m_Layer: 0
-  m_Name: Bouncer
+  m_Name: bouncer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
