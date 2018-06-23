@@ -103,6 +103,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114070295216419116, guid: f82bc2bf08fcadc40bb1af8fce506d1d,
     type: 2}
   shootOffset: {x: 0, y: 0.5, z: 0}
+  anim: {fileID: 0}
+  col: {fileID: 0}
+  Explosion: {fileID: 1639321178624708, guid: c30201184252cbb478dcf75702421708, type: 2}
 --- !u!212 &212780053285735816
 SpriteRenderer:
   m_ObjectHideFlags: 1

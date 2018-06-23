@@ -100,9 +100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootTime: 2
-  bulletPrefab: {fileID: 114070295216419116, guid: f82bc2bf08fcadc40bb1af8fce506d1d,
+  bulletPrefab: {fileID: 114347224457713786, guid: b73653b6261a78347b9036d4c6a3de79,
     type: 2}
   shootOffset: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
+  col: {fileID: 0}
+  Explosion: {fileID: 1639321178624708, guid: c30201184252cbb478dcf75702421708, type: 2}
   jumpHeight: 10
 --- !u!212 &212800805029808684
 SpriteRenderer:

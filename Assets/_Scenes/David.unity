@@ -1215,6 +1215,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114070295216419116, guid: f82bc2bf08fcadc40bb1af8fce506d1d,
     type: 2}
   shootOffset: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
+  col: {fileID: 0}
+  Explosion: {fileID: 1639321178624708, guid: c30201184252cbb478dcf75702421708, type: 2}
   shield: {fileID: 1491769258}
 --- !u!1001 &632900195
 Prefab:
@@ -1307,6 +1310,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114070295216419116, guid: f82bc2bf08fcadc40bb1af8fce506d1d,
     type: 2}
   shootOffset: {x: 0, y: 0.5, z: 0}
+  anim: {fileID: 0}
+  col: {fileID: 0}
+  Explosion: {fileID: 1639321178624708, guid: c30201184252cbb478dcf75702421708, type: 2}
   shield: {fileID: 387303408}
 --- !u!1 &663089480 stripped
 GameObject:
@@ -2046,6 +2052,12 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212640633386601066, guid: 492183a61aadeaf43ab33d0c6655f324,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 335645905c6ec624e868f4f4835a24de,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 492183a61aadeaf43ab33d0c6655f324, type: 2}
   m_IsPrefabParent: 0
@@ -2456,6 +2468,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114070295216419116, guid: f82bc2bf08fcadc40bb1af8fce506d1d,
     type: 2}
   shootOffset: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
+  col: {fileID: 0}
+  Explosion: {fileID: 1639321178624708, guid: c30201184252cbb478dcf75702421708, type: 2}
   shield: {fileID: 1273720585}
 --- !u!1 &1640045203 stripped
 GameObject:
