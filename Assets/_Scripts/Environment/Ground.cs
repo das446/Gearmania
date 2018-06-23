@@ -60,7 +60,7 @@ public class Ground : MonoBehaviour, IContact<Gear>, IContact<Player>,IExitConta
         SpriteRenderer s = gameObject.GetComponent<SpriteRenderer>();
         if(s.drawMode == SpriteDrawMode.Tiled && fixCol){
             BoxCollider2D col = GetComponent<BoxCollider2D>();
-            col.size = new Vector2(s.size.x,1);
+            col.size = new Vector2(s.size.x,s.size.y);
             col.offset = new Vector2(s.size.x/2,-s.size.y/2);
 
         }
