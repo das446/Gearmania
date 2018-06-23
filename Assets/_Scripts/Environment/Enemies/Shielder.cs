@@ -13,7 +13,9 @@ public class Shielder : EnemyRobot {
 
 	public override void Update(){
 		base.Update();
-		shield.transform.position=transform.position+offset;
+		if(shield!=null){
+			shield.transform.position=transform.position+offset;
+		}
 	}
 
 	public override void OnCollision(Gear gear){
